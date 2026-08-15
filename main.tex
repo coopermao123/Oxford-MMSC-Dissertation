@@ -1,0 +1,107 @@
+\documentclass[12pt]{ociamthesis}
+
+% -----------------------------------------------------------------------------
+% Dissertation-wide packages
+% -----------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% Figures created for the dissertation should normally be stored here.
+\graphicspath{{figures/}}
+
+% Oxford MMSC requires at least one-and-a-quarter line spacing.  The OCIAM
+% handbook specifically recommends baselinestretch = 1.25.
+\renewcommand{\baselinestretch}{1.25}
+
+% -----------------------------------------------------------------------------
+% Mathematical environments and convenient notation
+% -----------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+% -----------------------------------------------------------------------------
+% Title-page information
+% -----------------------------------------------------------------------------
+\title{Use of Adjoint Methods and MLMC to Calibrate Local Volatility Surfaces}
+\author{Xinqi Mao}
+\college{Lady Margaret Hall}
+\renewcommand{\submittedtext}{A dissertation submitted for the degree of}
+\degree{MSc in Mathematical Modelling \& Scientific Computing}
+\degreedate{Trinity 2026}
+
+\begin{document}
+
+% Number subsections and subsubsections, and show them in the contents.
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% -----------------------------------------------------------------------------
+% Front matter (excluded from the dissertation page limit)
+% -----------------------------------------------------------------------------
+\hypersetup{pageanchor=false}
+\maketitle
+\include{acknowledgements}
+\include{abstract}
+\include{ai-declaration}
+
+\hypersetup{pageanchor=true}
+\begin{romanpages}
+\tableofcontents
+\listoffigures
+\listoftables
+\end{romanpages}
+
+% -----------------------------------------------------------------------------
+% Main dissertation
+% -----------------------------------------------------------------------------
+\include{chapters/chapter1-introduction}
+\include{chapters/chapter2-background}
+\include{chapters/chapter3-pricing-engine}
+\include{chapters/chapter4-adjoints}
+\include{chapters/chapter5-calibration}
+\include{chapters/chapter6-milstein-ce}
+\include{chapters/chapter7-mlmc}
+\include{chapters/chapter8-conclusions}
+
+% -----------------------------------------------------------------------------
+% Appendices
+% -----------------------------------------------------------------------------
+\appendix
+\include{appendices/appendixA-pricing-convergence}
+\include{appendices/appendixB-sensitivity-validation}
+\include{appendices/appendixC-coupled-corrections}
+\include{appendices/appendixD-reproducibility}
+
+% -----------------------------------------------------------------------------
+% References
+% -----------------------------------------------------------------------------
+\cleardoublepage
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
